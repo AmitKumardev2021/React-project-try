@@ -8,6 +8,17 @@
   font-family: 'Nunito', sans-serif;
 
 }
+.position{
+ text-align: center;
+  
+}
+.deco{
+  resize: none;
+  overflow-y: auto;
+}
+.top-margin{
+  margin-top:60px;
+}
 .font{
   font-weight: 700;
   font-size: 24px;
