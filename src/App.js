@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import "./App.css";
 import Alert from "./component/Alert";
-// import About from "./component/About";
+import About from "./component/About";
 import Foram from "./component/Foram";
 import NavBar from "./component/NavBar.js";
 
@@ -36,10 +37,18 @@ const App = () => {
 
   return (
     <>
+    <Router>
       <NavBar mode={mode} toggleMode={toggleMode} />
       <Alert alert={alert} />
-      <Foram mode={mode} showAlert={showAlert} />
-      {/* <About/> */}
+    <Switch>
+          <Route exact path="/" >
+          <Foram mode={mode} showAlert={showAlert} />
+          </Route>
+          <Route path="/about" exact>
+            <About />
+          </Route>
+        </Switch>
+    </Router>
     </>
   );
 };
