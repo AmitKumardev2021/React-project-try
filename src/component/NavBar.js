@@ -1,13 +1,14 @@
 import React from "react";
-import PropTypes from 'prop-types';
-
+import PropTypes from "prop-types";
 
 const NavBar = (props) => {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-secondary">
+      <nav
+        className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
+      >
         <div className="container-fluid">
-          <a className="navbar-brand font text-white" href="/">
+          <a className="navbar-brand font" href="/">
             {props.title}
           </a>
           <button
@@ -24,17 +25,37 @@ const NavBar = (props) => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active text-white" aria-current="page" href="/">
+                <a
+                  className="nav-link active"
+                  aria-current="page"
+                  href="/"
+                >
                   Home
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link text-white" href="/">
+                <a className="nav-link " href="/">
                   {props.about}
                 </a>
               </li>
             </ul>
-            <form className="d-flex">
+
+            <div>
+              <div className="form-check form-switch">
+                <input
+                  className="form-check-input"
+                  onClick={props.toggleMode}
+                  type="checkbox"
+                  id="flexSwitchCheckDefault"
+                />
+                <label
+                  className={`form-check-label text-${props.mode==='light'?'dark':'light'}`}
+                  htmlFor="flexSwitchCheckDefault">
+                  {props.mode}
+                </label>
+              </div>
+            </div>
+            {/* <form className="d-flex">
               <input
                 className="form-control me-2"
                 type="search"
@@ -44,7 +65,7 @@ const NavBar = (props) => {
               <button className="btn btn-primary text-white" type="submit">
                 Search
               </button>
-            </form>
+            </form> */}
           </div>
         </div>
       </nav>
@@ -52,17 +73,16 @@ const NavBar = (props) => {
   );
 };
 
-
 // to define props type ex.string,number,array
 NavBar.prototype = {
-    title:PropTypes.string.isRequired,
-    about:PropTypes.string
-}
+  title: PropTypes.string.isRequired,
+  about: PropTypes.string,
+};
 
 // here in default props alwasys nedd to set because it help where  no such data is present.
-NavBar.defaultProps={
-    title:"set Titile Here",
-    about:"about text here"
-}
+NavBar.defaultProps = {
+  title: "WordZipo",
+  about: "About",
+};
 
 export default NavBar;
