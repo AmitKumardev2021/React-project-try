@@ -1,53 +1,31 @@
-import React,{useState} from "react";
+import React from "react";
 
 
 
-const About = () => {
-  const [changeMe, setchangeMe] = useState({
-    color: "black",
-    backgroundColor: "white",
-    
-  });
-  
-  const [btnText, setbtnText] = useState("Dark Mode")
-
-  const toogleBtn = () => {
-    if(changeMe.color === 'white'){
-        setchangeMe({
-            color: "black",
-            backgroundColor: "white",
-            
-
-        });
-        setbtnText("Dark Mode")
-    }else{
-        setchangeMe({
-            color: "white",
-            backgroundColor: "black",
-            border:"1px solid white",
-            borderRadius:"10px"
-
-        })
-        setbtnText("Light Mode")
-    }
-  };
-
+const About = (props) => {
+ 
   return (
-    <div className="container my-4 " style={changeMe}>
+    <div className="container my-5 "   style={{
+      backgroundColor: props.mode === "light" ? "white" : "grey",
+      color: props.mode === "light" ? "black" : "white",
+    }}  >
       <h1 className="my-4 fw-bold">About Us</h1>
       <div className="accordion accordion-flush" id="accordionFlushExample">
         <div className="accordion-item">
           <h2 className="accordion-header" id="flush-headingOne">
             <button
               className="accordion-button collapsed"
-              style={changeMe}
+              style={{
+              backgroundColor: props.mode === "light" ? "white" : "grey",
+              color: props.mode === "light" ? "black" : "white",
+            }}
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#flush-collapseOne"
               aria-expanded="false"
               aria-controls="flush-collapseOne"
             >
-              Accordion Item #1
+              Year of launching.
             </button>
           </h2>
           <div
@@ -56,10 +34,11 @@ const About = () => {
             aria-labelledby="flush-headingOne"
             data-bs-parent="#accordionFlushExample"
           >
-            <div className="accordion-body" style={changeMe}>
-              Placeholder content for this accordion, which is intended to
-              demonstrate the <code>.accordion-flush</code> class. This is the
-              first item's accordion body.
+            <div className="accordion-body"  style={{
+              backgroundColor: props.mode === "light" ? "white" : "grey",
+              color: props.mode === "light" ? "black" : "white",
+            }}>
+              WordZipo is created in september year 2021.
             </div>
           </div>
         </div>
@@ -67,14 +46,17 @@ const About = () => {
           <h2 className="accordion-header" id="flush-headingTwo">
             <button
               className="accordion-button collapsed"
-              style={changeMe}
+              style={{
+              backgroundColor: props.mode === "light" ? "white" : "grey",
+              color: props.mode === "light" ? "black" : "white",
+            }}
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#flush-collapseTwo"
               aria-expanded="false"
               aria-controls="flush-collapseTwo"
             >
-              Accordion Item #2
+              DeveloperName
             </button>
           </h2>
           <div
@@ -83,11 +65,11 @@ const About = () => {
             aria-labelledby="flush-headingTwo"
             data-bs-parent="#accordionFlushExample"
           >
-            <div className="accordion-body" style={changeMe}>
-              Placeholder content for this accordion, which is intended to
-              demonstrate the <code>.accordion-flush</code> class. This is the
-              second item's accordion body. Let's imagine this being filled with
-              some actual content.
+            <div className="accordion-body" style={{
+              backgroundColor: props.mode === "light" ? "white" : "grey",
+              color: props.mode === "light" ? "black" : "white",
+            }}>
+             WordZipo is single handed developed react app so developer name is <strong>Amit kumar</strong>  from India.
             </div>
           </div>
         </div>
@@ -95,14 +77,17 @@ const About = () => {
           <h2 className="accordion-header" id="flush-headingThree">
             <button
               className="accordion-button collapsed"
-              style={changeMe}
+              style={{
+              backgroundColor: props.mode === "light" ? "white" : "grey",
+              color: props.mode === "light" ? "black" : "white",
+            }}
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#flush-collapseThree"
               aria-expanded="false"
               aria-controls="flush-collapseThree"
             >
-              Accordion Item #3
+              Version
             </button>
           </h2>
           <div
@@ -111,20 +96,16 @@ const About = () => {
             aria-labelledby="flush-headingThree"
             data-bs-parent="#accordionFlushExample"
           >
-            <div className="accordion-body" style={changeMe}>
-              Placeholder content for this accordion, which is intended to
-              demonstrate the <code>.accordion-flush</code> class. This is the
-              third item's accordion body. Nothing more exciting happening here
-              in terms of content, but just filling up the space to make it
-              look, at least at first glance, a bit more representative of how
-              this would look in a real-world application.
+            <div className="accordion-body" style={{
+              backgroundColor: props.mode === "light" ? "white" : "grey",
+              color: props.mode === "light" ? "black" : "white",
+            }}>
+              Verison: 1.0.0
             </div>
           </div>
         </div>
       </div>
-      <button className="btn btn-primary my-4" onClick={toogleBtn}>
-        {btnText}
-      </button>
+     
     </div>
   );
 };

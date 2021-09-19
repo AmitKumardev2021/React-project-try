@@ -45,7 +45,7 @@ const App = () => {
           <Foram mode={mode} showAlert={showAlert} />
           </Route>
           <Route path="/about" exact>
-            <About />
+            <About mode={mode}/>
           </Route>
         </Switch>
     </Router>
