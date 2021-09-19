@@ -92,7 +92,7 @@ const Foram = (props) => {
           <textarea
             className="form-control deco w-100"
             style={{
-              backgroundColor: props.mode === "light" ? "white" : "grey",
+              backgroundColor: props.mode === "light" ? "white" : "#13466e",
               color: props.mode === "light" ? "black" : "white",
             }}
             id="myBox"
@@ -110,7 +110,7 @@ const Foram = (props) => {
 
             <div className="position">
               <p className="font-monospace">
-                <span className="fw-bolder">{text.split(" ").filter((y) => (y!=="")).length}</span>{" "}
+                <span className="fw-bolder">{text.split(" ").filter((y) => {return y.length!==0}).length}</span>{" "}
                 Words <br /> <span className="fw-bolder">{text.length}</span>{" "}
                 Character
               </p>
@@ -119,7 +119,7 @@ const Foram = (props) => {
               <p>
                 Time :{" "}
                 <span className="fw-bolder">
-                  {0.008 * text.split(" ").length} Minutes{" "}
+                  {0.008 * text.split(" ").filter((y) =>{return y.length!==0}).length} Minutes{" "}
                 </span>{" "}
               </p>
             </div>
